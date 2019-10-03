@@ -1,0 +1,34 @@
+<section class="" *ngIf="products.length > 0">
+  <div class="container">
+    <div class="">
+      <div class="">
+        <h1 class="card-title">Carrito de compras</h1>
+        <hr />
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td>{{product.codigo}}</td>
+              <td>{{product.nom_prod}}</td>
+              <td>{{product.precio}}</td>
+              <td>{{product.qt}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr />
+        <p>Sub Total S/. {{total}}</p>
+      </div>
+      <div class="card-body">
+        <button class="btn btn-primary float-left">Cancelar</button>
+        <button class="btn btn-primary float-right" (click)=" Venta()">Comprar</button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+<div>
+    <div class="row" >
+        <div class="col-lg-6">
+            <section class="">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" #producto placeholder="Buscar Producto" aria-describedby="button-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" (click)="getProducto(producto.value)" id="button-addon2">Buscar</button>
+                  </div>
+                </div>
+                <table class="table table-hover" *ngIf="product.idproducto > 0">
+                  <thead>
+                    <tr>
+                      <th>N°</th>
+                      <th>Código</th>
+                      <th>Nombre</th>
+                      <th>Precio</th>
+                      <th>Cantidad</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr (dblclick)="addProduct(product, qt)">
+                      <td>{{ product.idproducto }}</td>
+                      <td>{{ product.codigo }}</td>
+                      <td>{{ product.nom_prod }}</td>
+                      <td>{{ product.precio }}</td>
+                      <td><input class="form-control" type="text" min="1" max="{{ product.stock }}" [(ngModel)]="product.qt" #qt /></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </section>
+              <app-carrito [products]="products" [total]="total" [qttotal]="qttotal" ></app-carrito>
+          </div>
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-8">
+                <app-client></app-client>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

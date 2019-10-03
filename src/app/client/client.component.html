@@ -1,0 +1,13 @@
+<div class="input-group mb-3">
+    <input type="text" class="form-control" #dni  placeholder="BuscarCliente" aria-describedby="button-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="getCliente(dni.value)">Buscar</button>
+  </div>
+</div>
+
+<div class="form-group" *ngIf="client">
+    <input type="hidden" [(ngModel)]="client.idpersona">
+    <p class="form-control text-primary" >DNI: {{client.dni}}</p>
+    <p class="form-control text-primary">Nombre: {{client.nombres}} {{client.apellidos}}</p>
+    <p class="form-control text-primary">Telefóno: {{client.telefono}}</p>
+  </div>
